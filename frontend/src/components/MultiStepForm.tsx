@@ -21,7 +21,7 @@ const INTEREST_OPTIONS = [
   { id: 'Photography', label: '📸 Photography' },
 ];
 
-const springTransition = { type: 'spring', stiffness: 300, damping: 30 };
+const springTransition = { type: 'spring' as const, stiffness: 300, damping: 30 };
 
 export const MultiStepForm: React.FC<MultiStepFormProps> = ({ onSubmit, loading, error }) => {
   const [step, setStep] = useState(1);
