@@ -1,7 +1,8 @@
-const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5001';
+const API_URL = (process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5001').replace(/\/+$/, '');
 
 export const fetchApi = async (path: string, options: RequestInit = {}) => {
-  const url = `${API_URL}${path}`;
+  const cleanPath = path.startsWith('/') ? path : `/${path}`;
+  const url = `${API_URL}${cleanPath}`;
   
   options.credentials = 'include';
   
